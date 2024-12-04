@@ -40,30 +40,30 @@ function crear_carta(Producto) {
     const { producto, precio, img, categoria, stock } = Producto;
 
     const carta = document.createElement("div");
-    carta.className = "card text-bg-light rounded-4 shadow-lg border-0";
+    carta.className = "col d-flex";
     carta.innerHTML = `
-        <div class="card-body px-4 pt-4 pb-1">
-            <div class="px-2 pb-4">
-                <div class="d-flex gap-3 pb-2">
-                    <div class="my-auto ">
-                        <h5 class="card-title fw-bold fs-5 text-capitalize" style="user-select: none;">
-                            ${producto}
-                        </h5>
-                        <h5 class="card-title fw-bold fs-6 text-capitalize" style="user-select: none;">
-                            ${precio}$
-                        </h5>
-                    </div>
-                </div>
+        <div class="card text-bg-light rounded-4 shadow-lg border-2 border-info p-2 w-100">
+            <div class="ratio ratio-1x1">
+                <img src="${img}" class="card-img-bottom rounded-4 object-fit-cover border border-2 border-warning" alt="${producto}">
             </div>
-            <div>
-                <div class="ratio ratio-1x1">
-                    <img src="${img}" class="card-img-bottom rounded-4 shadow-lg" alt="${producto}">
+            <div class="card-body d-flex flex-column justify-content-between px-2">
+                <div>
+                    <h4 class="card-title fw-semibold fs-4 text-capitalize" style="user-select: none;">
+                        ${producto}
+                    </h4>
+                    <h5 class="card-title fw-semibold fs-5 text-capitalize" style="user-select: none;">
+                        $ ${precio}
+                    </h5>
                 </div>
-            </div>
-            <div class="px-2 py-1">
-                <span class="card-title fw-lighter fs-6 text-capitalize" style="user-select: none;">
-                    ${categoria} | ${stock}
-                </span>
+                <div>
+                    <span class="card-title fw-lighter fs-6 text-capitalize" style="user-select: none;">
+                        Stock: ${stock}
+                    </span>
+                    <br>
+                    <span class="card-title fw-lighter fs-6 text-capitalize" style="user-select: none;">
+                        Categoria: ${categoria}
+                    </span>
+                </div>
             </div>
         </div>
     `;
