@@ -37,8 +37,6 @@ async function spawn_cartas() {
 }
 
 function crear_carta(Producto) {
-    console.log(Producto);
-
     const { producto, precio, img, categoria, stock } = Producto;
 
     const carta = document.createElement("div");
