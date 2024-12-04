@@ -1,4 +1,4 @@
-var Inventario = [];
+let Inventario = [];
 
 async function consultar_inventario() {
     try {
@@ -41,8 +41,9 @@ function crear_carta(Producto) {
 
     const { producto, precio, img, categoria, stock } = Producto;
 
-    var carta = `
-    <div class="card text-bg-light rounded-4 shadow-lg border-0">
+    const carta = document.createElement("div");
+    carta.className = "card text-bg-light rounded-4 shadow-lg border-0";
+    carta.innerHTML = `
         <div class="card-body px-4 pt-4 pb-1">
             <div class="px-2 pb-4">
                 <div class="d-flex gap-3 pb-2">
@@ -67,10 +68,14 @@ function crear_carta(Producto) {
                 </span>
             </div>
         </div>
-    </div>
     `;
 
-    $("#posts").append(carta);
+    const postsContainer = document.getElementById("posts");
+    if (postsContainer) {
+        postsContainer.appendChild(carta);
+    } else {
+        console.error("El contenedor con id 'posts' no existe en el DOM.");
+    }
 }
 
 (async function init() {
